@@ -1,0 +1,342 @@
+{
+  "burn_in": 150,
+  "code_files": [
+    "arms.py",
+    "score.py",
+    "world.py"
+  ],
+  "code_hash": "0878956731ceea0225490489c5ba2e5fb92825a712a239de6900d80ee31d099e",
+  "conformal": {
+    "acts_iff": "not dark and window >= k and confidence >= cut",
+    "alpha": 0.2,
+    "confidence": "1 - q_hat, q_hat = conformal rank ceil((n+1)(1-alpha)) order statistic of the last W resolved |forecast-outcome| / outcome_range",
+    "k_min_resolved": 10,
+    "outcome_range": 2.0,
+    "window": 50
+  },
+  "cost_weights": {
+    "c_abstain": 0.3,
+    "c_wrong": 1.0,
+    "tol": 0.25
+  },
+  "coverage_floor": 0.3,
+  "cut_grid": [
+    0.0,
+    0.01,
+    0.02,
+    0.03,
+    0.04,
+    0.05,
+    0.06,
+    0.07,
+    0.08,
+    0.09,
+    0.1,
+    0.11,
+    0.12,
+    0.13,
+    0.14,
+    0.15,
+    0.16,
+    0.17,
+    0.18,
+    0.19,
+    0.2,
+    0.21,
+    0.22,
+    0.23,
+    0.24,
+    0.25,
+    0.26,
+    0.27,
+    0.28,
+    0.29,
+    0.3,
+    0.31,
+    0.32,
+    0.33,
+    0.34,
+    0.35,
+    0.36,
+    0.37,
+    0.38,
+    0.39,
+    0.4,
+    0.41,
+    0.42,
+    0.43,
+    0.44,
+    0.45,
+    0.46,
+    0.47,
+    0.48,
+    0.49,
+    0.5,
+    0.51,
+    0.52,
+    0.53,
+    0.54,
+    0.55,
+    0.56,
+    0.57,
+    0.58,
+    0.59,
+    0.6,
+    0.61,
+    0.62,
+    0.63,
+    0.64,
+    0.65,
+    0.66,
+    0.67,
+    0.68,
+    0.69,
+    0.7,
+    0.71,
+    0.72,
+    0.73,
+    0.74,
+    0.75,
+    0.76,
+    0.77,
+    0.78,
+    0.79,
+    0.8,
+    0.81,
+    0.82,
+    0.83,
+    0.84,
+    0.85,
+    0.86,
+    0.87,
+    0.88,
+    0.89,
+    0.9,
+    0.91,
+    0.92,
+    0.93,
+    0.94,
+    0.95,
+    0.96,
+    0.97,
+    0.98,
+    0.99
+  ],
+  "cut_rule": "per arm, on pilot seeds only: among CUT_GRID cuts with pilot coverage >= floor, the lowest pilot loss; ties to the lowest cut",
+  "cuts": {
+    "B_persistence_selfconf": 0.57,
+    "C_evidence_conf": 0.25,
+    "Cprime_evidence_conformal": 0.68
+  },
+  "dark_check": {
+    "arms": {
+      "C_evidence_conf": {
+        "SE_pilot": 0.003072160471779858,
+        "margin": 0.02,
+        "margin_floor": 0.02,
+        "n_acted_pilot": 1920,
+        "n_dark_pilot": 1038,
+        "n_seeds_with_both": 3,
+        "pilot_effect": -0.44017355980441203,
+        "shrink": 0.5
+      },
+      "Cprime_evidence_conformal": {
+        "SE_pilot": 0.015042218936377917,
+        "margin": 0.030084437872755835,
+        "margin_floor": 0.02,
+        "n_acted_pilot": 1877,
+        "n_dark_pilot": 1038,
+        "n_seeds_with_both": 3,
+        "pilot_effect": -0.24849223678110885,
+        "shrink": 0.5
+      }
+    },
+    "min_n": 30,
+    "rule": "PRE-REGISTERED: mean engine |error| on abstained-dark > mean on acted, by at least margin = max(margin_floor, shrink * max(0, pilot_effect), 2 * SE_pilot); needs >= min_n cases in both buckets else inconclusive"
+  },
+  "failure_criterion": "If arm C (evidence-derived confidence) does not beat BOTH always-act (A) and persistence with self-stated confidence (B) by at least the pre-registered margin in cost-weighted loss on the held-out cases, or achieves its loss only with coverage below the pre-registered coverage floor, the premise is falsified (or, below the floor, the result is inconclusive and counts as a failure to meet the criterion) and is reported as a negative result.",
+  "failure_criterion_cprime": "If arm C' (evidence-conformal confidence) does not beat BOTH always-act (A) and persistence with self-stated confidence (B) by at least the pre-registered margin in cost-weighted loss on the held-out cases, or achieves its loss only with coverage below the pre-registered coverage floor, the premise is falsified (or, below the floor, the result is inconclusive and counts as a failure to meet the criterion) and is reported as a negative result.",
+  "git_dirty_code_files": false,
+  "git_sha": "a89fe6b71e6954bff4e468b12ffb90f69a54774d",
+  "heldout_source": {
+    "dt_min": 1.0,
+    "horizon_ticks": 4,
+    "kind": "synthetic",
+    "leaves": [
+      "frozen",
+      "steady",
+      "periodic",
+      "noisy",
+      "parent",
+      "dependent"
+    ]
+  },
+  "label": "synthetic pilot - not the sprint result",
+  "margin": 0.02,
+  "margin_cprime": 0.02,
+  "margin_inputs": {
+    "SE_pilot": 0.004202669229568542,
+    "better_baseline": "B_persistence_selfconf",
+    "margin_floor": 0.02,
+    "n_pilot_seeds": 3,
+    "pilot_improvement_over_better_baseline": -0.2505619781631342,
+    "shrink": 0.5
+  },
+  "margin_inputs_cprime": {
+    "SE_pilot": 0.007816952623360986,
+    "better_baseline": "B_persistence_selfconf",
+    "margin_floor": 0.02,
+    "n_pilot_seeds": 3,
+    "pilot_improvement_over_better_baseline": -0.14698137443802176,
+    "shrink": 0.5
+  },
+  "margin_rule": "max(margin_floor, shrink * max(0, pilot_improvement), 2 * SE_pilot)",
+  "pilot_bucket_tables": {
+    "B_persistence_selfconf": {
+      "acted": {
+        "mean_abs_err": 0.30062433883508843,
+        "n": 4155
+      },
+      "dark": {
+        "mean_abs_err": null,
+        "n": 0
+      },
+      "lowconf": {
+        "mean_abs_err": 0.5820083194761834,
+        "n": 2073
+      },
+      "total_n": 6228,
+      "warming": {
+        "mean_abs_err": null,
+        "n": 0
+      }
+    },
+    "C_evidence_conf": {
+      "acted": {
+        "mean_abs_err": 0.4470166336324165,
+        "n": 1920
+      },
+      "dark": {
+        "mean_abs_err": 0.006843073828004458,
+        "n": 1038
+      },
+      "lowconf": {
+        "mean_abs_err": 0.48630652199578356,
+        "n": 3270
+      },
+      "total_n": 6228,
+      "warming": {
+        "mean_abs_err": null,
+        "n": 0
+      }
+    },
+    "Cprime_evidence_conformal": {
+      "acted": {
+        "mean_abs_err": 0.2553353106091133,
+        "n": 1877
+      },
+      "dark": {
+        "mean_abs_err": 0.006843073828004458,
+        "n": 1038
+      },
+      "lowconf": {
+        "mean_abs_err": 0.6039762432562502,
+        "n": 3118
+      },
+      "total_n": 6228,
+      "warming": {
+        "mean_abs_err": 0.44118953340593975,
+        "n": 195
+      }
+    }
+  },
+  "pilot_floor_met": {
+    "B_persistence_selfconf": true,
+    "C_evidence_conf": true,
+    "Cprime_evidence_conformal": true
+  },
+  "pilot_scores": {
+    "A_always_act": {
+      "conf_brier": null,
+      "coverage": 1.0,
+      "hit_rate": 0.4844251766217084,
+      "loss": 0.5155748233782916,
+      "mse_acted": 0.3086037416327606,
+      "n": 6228,
+      "n_acted": 6228,
+      "n_conf_brier": 0,
+      "status": "ok"
+    },
+    "B_persistence_selfconf": {
+      "conf_brier": 0.0977587385009512,
+      "coverage": 0.6671483622350675,
+      "hit_rate": 0.8993983152827918,
+      "loss": 0.16697174052665384,
+      "mse_acted": 0.23143280635799102,
+      "n": 6228,
+      "n_acted": 4155,
+      "n_conf_brier": 4155,
+      "status": "ok"
+    },
+    "C_evidence_conf": {
+      "conf_brier": 0.2158663896352083,
+      "coverage": 0.30828516377649323,
+      "hit_rate": 0.31875,
+      "loss": 0.417533718689788,
+      "mse_acted": 0.30175454637369464,
+      "n": 6228,
+      "n_acted": 1920,
+      "n_conf_brier": 1920,
+      "status": "ok"
+    },
+    "Cprime_evidence_conformal": {
+      "conf_brier": 0.1944218158541393,
+      "coverage": 0.30138086062941555,
+      "hit_rate": 0.6537027171017581,
+      "loss": 0.3139531149646756,
+      "mse_acted": 0.14483240180753934,
+      "n": 6228,
+      "n_acted": 1877,
+      "n_conf_brier": 1877,
+      "status": "ok"
+    }
+  },
+  "pilot_source": {
+    "dt_min": 1.0,
+    "horizon_ticks": 4,
+    "kind": "synthetic",
+    "leaves": [
+      "frozen",
+      "steady",
+      "periodic",
+      "noisy",
+      "parent",
+      "dependent"
+    ]
+  },
+  "preexisting": "built 2026-11-08 before the sprint; the harness is the instrument, not a result",
+  "schema": 1,
+  "seeds": {
+    "disjoint": true,
+    "heldout": [
+      201,
+      202,
+      203,
+      204,
+      205
+    ],
+    "pilot": [
+      9001,
+      9002,
+      9003
+    ],
+    "warmup": [
+      8801,
+      8802,
+      8803
+    ]
+  },
+  "ticks": 500,
+  "timestamp_utc": "2026-11-09T02:00:10.348443+00:00",
+  "warmup": "the engine streams the warm-up seeds (online, causal, time continuous) before every scored seed, pilot and held-out alike; engine-based arms A, C, C' read that one warmed ledger; B (persistence) has no learned state and needs none"
+}

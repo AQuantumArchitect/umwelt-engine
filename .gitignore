@@ -1,0 +1,25 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+.pytest_cache/
+*.pkl
+*.sqlite3
+*.db
+.DS_Store
+
+# secrets — never commit real credentials, even to a private repo
+.env
+.env.*
+*.pem
+*.key
+*secret*
+*credential*
+
+# any ad-hoc venv name (.venv_check, .venv_foo, etc.), not just .venv/venv exactly
+.venv*/
+venv*/
+src/var/

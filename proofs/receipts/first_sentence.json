@@ -1,0 +1,69 @@
+{
+  "schema": "umwelt-proof-receipt/0.1",
+  "proof": "first_sentence",
+  "sentence": "A blank engine replayed one synthetic day (605 ingest batches, 2396 events). Its 10 agent_near beliefs began as one pure pole and ended as 9 distinct points spanning 1.95 of the 2.00 Bloch range; its learnable fiber lost 9.39 bits of entropy over 87 qubits (it learned) while its world beliefs gained 11.97 bits over 21 qubits (it gave back a certainty it never earned); 18 of 19 declared axes went live; 0 actions were dispatched.",
+  "corrects": "the intuition that observation lowers belief entropy; in an open belief field comprehension is differentiation of the world plus purification of the fiber, and total entropy may rise",
+  "couplings": {
+    "kappa_physical_to_quantum": {
+      "path": "BrainRunner.replay \u2192 engine.ingest \u2192 SensorBridge.process \u2192 cluster.observe_qubit",
+      "estimator": "L0 alpha-blend (default; L4 Belavkin OFF)",
+      "events": 2396,
+      "batches": 605,
+      "entropy_bits_before": {
+        "fiber_bits": 55.607857,
+        "fiber_qubits": 87,
+        "world_bits": 1.0,
+        "world_qubits": 21,
+        "total_bits": 56.607857
+      },
+      "entropy_bits_after": {
+        "fiber_bits": 46.219495,
+        "fiber_qubits": 87,
+        "world_bits": 12.96729,
+        "world_qubits": 21,
+        "total_bits": 59.186786
+      },
+      "world_differentiation_before": {
+        "role": "agent_near",
+        "qubits": 10,
+        "distinct_points": 1,
+        "z_spread": 0.0,
+        "pure_at_floor": true
+      },
+      "world_differentiation_after": {
+        "role": "agent_near",
+        "qubits": 10,
+        "distinct_points": 9,
+        "z_spread": 1.949904,
+        "pure_at_floor": false
+      }
+    },
+    "epsilon_quantum_to_cognitive": {
+      "path": "projection.nameplates (read-only on rho)",
+      "axes_before": {
+        "latent": 19,
+        "live": 0,
+        "dark": 0
+      },
+      "axes_after": {
+        "latent": 1,
+        "live": 18,
+        "dark": 0
+      }
+    },
+    "chi_cognitive_to_physical": {
+      "path": "membranes.egress.OutputSurface.route (shadow-first)",
+      "dispatched": 0,
+      "recommended_pending": 256
+    }
+  },
+  "ledger": "events are the truth; the field is a cache of them (umweltd/worldstore.py)",
+  "determinism": {
+    "seed": 7,
+    "days": 1.0,
+    "rng_pin": 1234,
+    "wall_clock": false
+  },
+  "eta_note": "a proof is observation-grade on its own outputs and nothing else; it raises no claim about any product",
+  "earning_usd": null
+}

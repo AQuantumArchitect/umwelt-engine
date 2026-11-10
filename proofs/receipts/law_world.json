@@ -1,0 +1,429 @@
+{
+  "schema": "umwelt-proof-receipt/0.1",
+  "proof": "law_world",
+  "sentence": "The constitution booted as a world: 23 parameters at their priors, 8 egress classes in shadow; 20 yes-sits moved egress.record belief from 0.950 to 0.983; 3 no-sits moved egress.outreach from 0.200 to 0.127; 0 dispatched.",
+  "law": {
+    "schema": "law/1",
+    "status": "proposed",
+    "ratified_by": "proposed:fable-51",
+    "as_of": "2026-10-17T03:00:00Z",
+    "sha256": "a4ef8d39f3a299d98a4b4d0c63592b836bccf5b4b212cfd9b69bec3d6f4b6b98",
+    "path": "examples/law_world/law.spec.json",
+    "canonical": "the-broadcast docs/law.spec.json (this copy must stay byte-identical)"
+  },
+  "frame": {
+    "schema": "frame/1",
+    "subject": "hive-law",
+    "stale_after_s": 3600,
+    "blank": {
+      "census": {
+        "current": 0,
+        "stale": 0,
+        "dark": 31,
+        "n": 31
+      },
+      "violations": [],
+      "read_only": true
+    },
+    "after_boot_sit": {
+      "census": {
+        "current": 31,
+        "stale": 0,
+        "dark": 0,
+        "n": 31
+      },
+      "violations": [],
+      "read_only": true,
+      "max_age_s": 0
+    },
+    "after_stream": {
+      "census": {
+        "current": 31,
+        "stale": 0,
+        "dark": 0,
+        "n": 31
+      },
+      "violations": [],
+      "read_only": true
+    }
+  },
+  "parameters": {
+    "tau_fresh.ops": {
+      "fiber_role": "_param_hive_tau_fresh.ops",
+      "cluster": "_fiber_unlearned",
+      "value": 3.0,
+      "prior": 3,
+      "width": 2,
+      "lo": 0.0,
+      "hi": 6.0,
+      "self_serving": false
+    },
+    "tau_fresh.face": {
+      "fiber_role": "_param_hive_tau_fresh.face",
+      "cluster": "_fiber_unlearned",
+      "value": 7.0,
+      "prior": 7,
+      "width": 3,
+      "lo": 0.0,
+      "hi": 14.0,
+      "self_serving": false
+    },
+    "tau_fresh.pulse": {
+      "fiber_role": "_param_hive_tau_fresh.pulse",
+      "cluster": "_fiber_unlearned",
+      "value": 0.5,
+      "prior": 0.5,
+      "width": 0.3,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "eta.claim": {
+      "fiber_role": "_param_hive_eta.claim",
+      "cluster": "_fiber_unlearned",
+      "value": 0.25,
+      "prior": 0.25,
+      "width": 0.1,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "eta.wall": {
+      "fiber_role": "_param_hive_eta.wall",
+      "cluster": "_fiber_unlearned",
+      "value": 0.4,
+      "prior": 0.4,
+      "width": 0.1,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "eta.referee": {
+      "fiber_role": "_param_hive_eta.referee",
+      "cluster": "_fiber_unlearned",
+      "value": 0.92,
+      "prior": 0.92,
+      "width": 0.05,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "eta.actor": {
+      "fiber_role": "_param_hive_eta.actor",
+      "cluster": "_fiber_unlearned",
+      "value": 0.0,
+      "prior": 0.0,
+      "width": 0.1,
+      "lo": -1.0,
+      "hi": 1.0,
+      "self_serving": true
+    },
+    "margin": {
+      "fiber_role": "_param_hive_margin",
+      "cluster": "_fiber_unlearned",
+      "value": 0.15,
+      "prior": 0.15,
+      "width": 0.1,
+      "lo": 0.0,
+      "hi": 0.3,
+      "self_serving": true
+    },
+    "audit.floor": {
+      "fiber_role": "_param_hive_audit.floor",
+      "cluster": "_fiber_unlearned",
+      "value": 0.050000000000000044,
+      "prior": 0.05,
+      "width": 0.03,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": true
+    },
+    "audit.halflife": {
+      "fiber_role": "_param_hive_audit.halflife",
+      "cluster": "_fiber_unlearned",
+      "value": 20.0,
+      "prior": 20,
+      "width": 10,
+      "lo": 0.0,
+      "hi": 40.0,
+      "self_serving": true
+    },
+    "minutes.sit": {
+      "fiber_role": "_param_hive_minutes.sit",
+      "cluster": "_fiber_unlearned",
+      "value": 5.0,
+      "prior": 5,
+      "width": 5,
+      "lo": 0.0,
+      "hi": 10.0,
+      "self_serving": false
+    },
+    "needs_luke.dam": {
+      "fiber_role": "_param_hive_needs_luke.dam",
+      "cluster": "_fiber_unlearned",
+      "value": 0.9,
+      "prior": 0.9,
+      "width": 0.1,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "needs_luke.blocked": {
+      "fiber_role": "_param_hive_needs_luke.blocked",
+      "cluster": "_fiber_unlearned",
+      "value": 0.7,
+      "prior": 0.7,
+      "width": 0.2,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "needs_luke.receipt": {
+      "fiber_role": "_param_hive_needs_luke.receipt",
+      "cluster": "_fiber_unlearned",
+      "value": 0.09999999999999998,
+      "prior": 0.1,
+      "width": 0.1,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "needs_luke.started": {
+      "fiber_role": "_param_hive_needs_luke.started",
+      "cluster": "_fiber_unlearned",
+      "value": 0.050000000000000044,
+      "prior": 0.05,
+      "width": 0.05,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    },
+    "cap.rows": {
+      "fiber_role": "_param_hive_cap.rows",
+      "cluster": "_fiber_unlearned",
+      "value": 80.0,
+      "prior": 80,
+      "width": 0,
+      "lo": 0.0,
+      "hi": 160.0,
+      "self_serving": true
+    },
+    "cap.live": {
+      "fiber_role": "_param_hive_cap.live",
+      "cluster": "_fiber_unlearned",
+      "value": 3.0,
+      "prior": 3,
+      "width": 0,
+      "lo": 0.0,
+      "hi": 6.0,
+      "self_serving": true
+    },
+    "cap.rivers": {
+      "fiber_role": "_param_hive_cap.rivers",
+      "cluster": "_fiber_unlearned",
+      "value": 5.0,
+      "prior": 5,
+      "width": 0,
+      "lo": 0.0,
+      "hi": 10.0,
+      "self_serving": true
+    },
+    "cap.kernel": {
+      "fiber_role": "_param_hive_cap.kernel",
+      "cluster": "_fiber_unlearned",
+      "value": 1550.0,
+      "prior": 1550,
+      "width": 0,
+      "lo": 0.0,
+      "hi": 3100.0,
+      "self_serving": true
+    },
+    "cap.desk": {
+      "fiber_role": "_param_hive_cap.desk",
+      "cluster": "_fiber_unlearned",
+      "value": 1200.0,
+      "prior": 1200,
+      "width": 0,
+      "lo": 0.0,
+      "hi": 2400.0,
+      "self_serving": true
+    },
+    "fill.turns": {
+      "fiber_role": "_param_hive_fill.turns",
+      "cluster": "_fiber_unlearned",
+      "value": 3.0,
+      "prior": 3,
+      "width": 1,
+      "lo": 0.0,
+      "hi": 6.0,
+      "self_serving": true
+    },
+    "fill.timeout": {
+      "fiber_role": "_param_hive_fill.timeout",
+      "cluster": "_fiber_unlearned",
+      "value": 600.0,
+      "prior": 600,
+      "width": 200,
+      "lo": 0.0,
+      "hi": 1200.0,
+      "self_serving": false
+    },
+    "theta.display": {
+      "fiber_role": "_param_hive_theta.display",
+      "cluster": "_fiber_unlearned",
+      "value": 0.37,
+      "prior": 0.37,
+      "width": 0.1,
+      "lo": 0.0,
+      "hi": 1.0,
+      "self_serving": false
+    }
+  },
+  "classes": {
+    "egress.record": {
+      "p_yes_prior": 0.95,
+      "p_width": 0.05,
+      "held": false,
+      "shadow": true,
+      "sit_alpha": 0.05263157894736838,
+      "rest_z": 0.8999999999999999,
+      "p_yes_now": 0.9830430364219411
+    },
+    "egress.merge": {
+      "p_yes_prior": 0.6,
+      "p_width": 0.2,
+      "held": false,
+      "shadow": true,
+      "sit_alpha": 0.1666666666666667,
+      "rest_z": 0.19999999999999996,
+      "p_yes_now": 0.6
+    },
+    "egress.deploy": {
+      "p_yes_prior": 0.6,
+      "p_width": 0.2,
+      "held": false,
+      "shadow": true,
+      "sit_alpha": 0.1666666666666667,
+      "rest_z": 0.19999999999999996,
+      "p_yes_now": 0.6
+    },
+    "egress.publish": {
+      "p_yes_prior": 0.5,
+      "p_width": 0.2,
+      "held": false,
+      "shadow": true,
+      "sit_alpha": 0.16000000000000003,
+      "rest_z": 0.0,
+      "p_yes_now": 0.5
+    },
+    "egress.social": {
+      "p_yes_prior": 0.4,
+      "p_width": 0.2,
+      "held": false,
+      "shadow": true,
+      "sit_alpha": 0.1666666666666667,
+      "rest_z": -0.19999999999999996,
+      "p_yes_now": 0.4
+    },
+    "egress.outreach": {
+      "p_yes_prior": 0.2,
+      "p_width": 0.15,
+      "held": false,
+      "shadow": true,
+      "sit_alpha": 0.14062499999999997,
+      "rest_z": -0.6,
+      "p_yes_now": 0.12693405151367193
+    },
+    "egress.infra": {
+      "p_yes_prior": 0.1,
+      "p_width": 0.1,
+      "held": false,
+      "shadow": true,
+      "sit_alpha": 0.11111111111111112,
+      "rest_z": -0.8,
+      "p_yes_now": 0.09999999999999998
+    },
+    "egress.money": {
+      "p_yes_prior": 0.0,
+      "p_width": 0.0,
+      "held": true,
+      "shadow": true,
+      "sit_alpha": 0.0,
+      "rest_z": -1.0,
+      "p_yes_now": 0.0
+    }
+  },
+  "stream": {
+    "egress.record": {
+      "sits": "20 x yes",
+      "p_before": 0.95,
+      "p_after": 0.9830430364219411,
+      "z_series": [
+        0.855,
+        0.86,
+        0.864737,
+        0.869224,
+        0.873476,
+        0.877503,
+        0.881319,
+        0.884934,
+        0.888358,
+        0.891603,
+        0.894676,
+        0.897588,
+        0.900346,
+        0.90296,
+        0.905436,
+        0.907781,
+        0.910003,
+        0.912108,
+        0.914103,
+        0.915992,
+        0.917782
+      ],
+      "first_sit_dz": 0.0050000000000000044,
+      "gain": 0.05263157894736842
+    },
+    "egress.outreach": {
+      "sits": "3 x no",
+      "p_before": 0.2,
+      "p_after": 0.12693405151367193,
+      "z_series": [
+        -0.57,
+        -0.623437,
+        -0.66936,
+        -0.708825
+      ],
+      "first_sit_dz": -0.053437499999999916,
+      "gain": 0.14062499999999978
+    },
+    "egress.money": {
+      "sits": "1 x yes",
+      "z_before": -0.95,
+      "z_after": -0.95,
+      "pinned": "collapse_alpha 0 \u2192 \u03b7=0 \u2192 engine-law no-op"
+    }
+  },
+  "asymmetry": {
+    "in_engine": false,
+    "where": "policy layer",
+    "note": "one collapse_alpha per class binding (1/(n0+1), the Beta pseudo-count of the class's p_yes/p_width); the engine moves a yes and a no by that same gain. The law's 'no adds three to \u03b2' is delivered by the app that sits (three readings, or \u03b7 scaled), not by this spec or the engine. The raw per-sit \u0394z differ between record and outreach only through each class's own \u03b1 and (pole \u2212 z) distance."
+  },
+  "dispatched": 0,
+  "mapping": {
+    "parameter": "NodeSpec.params[id] \u2192 QubitBackedParam on _param_hive_<id> (+ a mirror role <id> on hive so frame/1 can show it)",
+    "class": "OutputSpec(<id>, hive.p_yes_<id>, shadow=True, coupling.rest_z = 2\u00b7p_yes \u2212 1)",
+    "sit": "BindingSpec(sit_<id> \u2192 hive.p_yes_<id>, range[-1,1], force_observe, \u03b1 = 1/(n0+1))",
+    "prior": "BindingSpec(prior_<id> \u2192 hive.<role>, range[lo,hi], force_observe, \u03b1 = 1)"
+  },
+  "determinism": {
+    "rng_pin": 1234,
+    "t0": "2026-10-17T03:00:00+00:00",
+    "wall_clock": "frame ages only"
+  },
+  "read_only_on_rho": true,
+  "builds_on": [
+    "proofs/first_sentence.py",
+    "proofs/frame_export.py"
+  ]
+}

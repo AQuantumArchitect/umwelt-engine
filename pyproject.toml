@@ -1,0 +1,79 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "umwelt-engine"
+version = "0.2.0"
+description = "A belief-field engine: describe a world as data, feed it observations, read live honest comprehension and forecasts."
+readme = "README.md"
+license = { text = "AGPL-3.0-or-later" }
+requires-python = ">=3.10"
+authors = [{ name = "Luke Spooner" }]
+keywords = ["belief", "estimation", "forecasting", "bayesian-filtering", "world-model"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Typing :: Typed",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "numpy>=1.24",
+    # MANIFEST.toml load on 3.10 (tomllib is stdlib 3.11+)
+    "tomli>=2.0.1; python_version < '3.11'",
+]
+
+[project.urls]
+Homepage = "https://github.com/AQuantumArchitect/umwelt-engine"
+Source = "https://github.com/AQuantumArchitect/umwelt-engine"
+Issues = "https://github.com/AQuantumArchitect/umwelt-engine/issues"
+Changelog = "https://github.com/AQuantumArchitect/umwelt-engine/blob/main/CHANGELOG.md"
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "scipy>=1.10"]
+# fractal_stack rollout residuals use scipy.linalg.expm
+rollout = ["scipy>=1.10"]
+viz = []
+# The embedded LLM compiler/warden layer (umweltforge) — optional so the engine
+# stays numpy-only and the repo gate needs no API key.
+forge = ["claude-agent-sdk>=0.1"]
+
+[project.scripts]
+umweltd = "umweltd.supervisor:main"
+umweltd-worker = "umweltd.worker:main"
+umweltctl = "umweltd.cli:main"
+umwelt-forge = "umweltforge.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+# PEP 561: the public API (docs/API.md) is typed inline
+umwelt = ["py.typed"]
+umweltd = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "proofs"]
+# proofs/ files are named for what they prove, not test_*-prefixed — list them explicitly
+python_files = [
+    "test_*.py",
+    "blank_slate.py",
+    "fidelity_harness.py",
+    "ladder_walk.py",
+    "deconfound_smoke.py",
+    "gamma_walk.py",
+    "fledgeling_fog_blank.py",
+    "selection_walk.py",
+    "higher_order_live_null.py",
+    "first_sentence.py",
+    "frame_export.py",
+    "law_world.py",
+]
+markers = [
+    "slow: long-running evidence harness (still runs in the default gate)",
+]

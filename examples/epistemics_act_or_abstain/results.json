@@ -1,0 +1,192 @@
+{
+  "arms": {
+    "A_always_act": {
+      "conf_brier": null,
+      "coverage": 1.0,
+      "hit_rate": 0.47832369942196534,
+      "loss": 0.5216763005780347,
+      "mse_acted": 0.3070165543895328,
+      "n": 10380,
+      "n_acted": 10380,
+      "n_conf_brier": 0,
+      "per_seed_loss": {
+        "201": 0.5260115606936416,
+        "202": 0.49470134874759153,
+        "203": 0.5409441233140655,
+        "204": 0.5105973025048169,
+        "205": 0.5361271676300579
+      },
+      "status": "ok"
+    },
+    "B_persistence_selfconf": {
+      "conf_brier": 0.0995165946979974,
+      "coverage": 0.6700385356454721,
+      "hit_rate": 0.8943206326383897,
+      "loss": 0.16979768786127167,
+      "mse_acted": 0.23830311986561933,
+      "n": 10380,
+      "n_acted": 6955,
+      "n_conf_brier": 6955,
+      "per_seed_loss": {
+        "201": 0.16551059730250484,
+        "202": 0.16984585741811173,
+        "203": 0.1703275529865125,
+        "204": 0.17037572254335256,
+        "205": 0.17292870905587668
+      },
+      "status": "ok"
+    },
+    "C_evidence_conf": {
+      "conf_brier": 0.21693738955437236,
+      "coverage": 0.27321772639691716,
+      "hit_rate": 0.3145275035260931,
+      "loss": 0.4053179190751445,
+      "mse_acted": 0.30820136545718857,
+      "n": 10380,
+      "n_acted": 2836,
+      "n_conf_brier": 2836,
+      "per_seed_loss": {
+        "201": 0.4277938342967244,
+        "202": 0.41526974951830437,
+        "203": 0.4004335260115606,
+        "204": 0.3990847784200385,
+        "205": 0.3840077071290943
+      },
+      "status": "FAIL_COVERAGE_FLOOR"
+    },
+    "Cprime_evidence_conformal": {
+      "conf_brier": 0.19492573767679622,
+      "coverage": 0.3001926782273603,
+      "hit_rate": 0.6559691912708601,
+      "loss": 0.31321772639691714,
+      "mse_acted": 0.14205339271261805,
+      "n": 10380,
+      "n_acted": 3116,
+      "n_conf_brier": 3116,
+      "per_seed_loss": {
+        "201": 0.3304913294797687,
+        "202": 0.29460500963391134,
+        "203": 0.3164258188824663,
+        "204": 0.30736994219653174,
+        "205": 0.31719653179190743
+      },
+      "status": "ok"
+    }
+  },
+  "calibration_cprime": {
+    "acted": {
+      "fraction_within": 0.7625160462130937,
+      "n": 3116
+    },
+    "all_issued": {
+      "fraction_within": 0.796996996996997,
+      "n": 8325
+    },
+    "target": 0.8
+  },
+  "dark_rises_error": {
+    "bucket_tables": {
+      "B_persistence_selfconf": {
+        "acted": {
+          "mean_abs_err": 0.30835748074404173,
+          "n": 6955
+        },
+        "dark": {
+          "mean_abs_err": null,
+          "n": 0
+        },
+        "lowconf": {
+          "mean_abs_err": 0.5744866921518841,
+          "n": 3425
+        },
+        "total_n": 10380,
+        "warming": {
+          "mean_abs_err": null,
+          "n": 0
+        }
+      },
+      "C_evidence_conf": {
+        "acted": {
+          "mean_abs_err": 0.4524699042481663,
+          "n": 2836
+        },
+        "dark": {
+          "mean_abs_err": 0.006826193873896075,
+          "n": 1730
+        },
+        "lowconf": {
+          "mean_abs_err": 0.48455955200298817,
+          "n": 5814
+        },
+        "total_n": 10380,
+        "warming": {
+          "mean_abs_err": null,
+          "n": 0
+        }
+      },
+      "Cprime_evidence_conformal": {
+        "acted": {
+          "mean_abs_err": 0.2571637009496591,
+          "n": 3116
+        },
+        "dark": {
+          "mean_abs_err": 0.006826193873896075,
+          "n": 1730
+        },
+        "lowconf": {
+          "mean_abs_err": 0.6026832578643587,
+          "n": 5209
+        },
+        "total_n": 10380,
+        "warming": {
+          "mean_abs_err": 0.49149138898027855,
+          "n": 325
+        }
+      }
+    },
+    "verdicts": {
+      "C_evidence_conf": {
+        "effect": -0.4456437103742702,
+        "margin": 0.02,
+        "n_acted": 2836,
+        "n_dark": 1730,
+        "verdict": "dark rises error: NOT supported"
+      },
+      "Cprime_evidence_conformal": {
+        "effect": -0.2503375070757631,
+        "margin": 0.030084437872755835,
+        "n_acted": 3116,
+        "n_dark": 1730,
+        "verdict": "dark rises error: NOT supported"
+      }
+    }
+  },
+  "heldout_seeds": [
+    201,
+    202,
+    203,
+    204,
+    205
+  ],
+  "label": "synthetic pilot - not the sprint result",
+  "n_cases": 10380,
+  "prereg_code_hash": "0878956731ceea0225490489c5ba2e5fb92825a712a239de6900d80ee31d099e",
+  "prereg_timestamp_utc": "2026-11-09T02:00:10.348443+00:00",
+  "verdict": "inconclusive (below coverage floor)",
+  "verdict_cprime": "premise falsified",
+  "verdict_cprime_detail": {
+    "improvement_over_A": 0.20845857418111757,
+    "improvement_over_B": -0.14342003853564547,
+    "margin": 0.02
+  },
+  "verdict_detail": {
+    "improvement_over_A": 0.11635838150289024,
+    "improvement_over_B": -0.2355202312138728,
+    "margin": 0.02
+  },
+  "warmup_seeds": [
+    8801,
+    8802,
+    8803
+  ]
+}

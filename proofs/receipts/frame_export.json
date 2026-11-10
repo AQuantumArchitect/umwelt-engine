@@ -1,0 +1,89 @@
+{
+  "schema": "umwelt-proof-receipt/0.1",
+  "proof": "frame_export",
+  "sentence": "A blank engine exported a frame/1 with 19 nodes: 19 dark, 0 current, 0 stale; after one synthetic day (605 ingest batches) it exported 1 dark, 18 current, 0 stale (threshold 3600s), and the field hash was unchanged by both exports.",
+  "frame_schema": "frame/1",
+  "subject": "gridworld",
+  "stale_after_s": 3600,
+  "before": {
+    "census": {
+      "current": 0,
+      "stale": 0,
+      "dark": 19,
+      "n": 19
+    },
+    "violations": [],
+    "field_canon_hash": "4313886dff467617",
+    "hash_unchanged_by_export": true,
+    "as_of": "2026-10-16T19:21:22Z"
+  },
+  "after": {
+    "census": {
+      "current": 18,
+      "stale": 0,
+      "dark": 1,
+      "n": 19
+    },
+    "violations": [],
+    "field_canon_hash": "66efdde1c09cd66f",
+    "hash_unchanged_by_export": true,
+    "as_of": "2026-10-16T19:21:37Z",
+    "nodes_with_own_timestamp": 18,
+    "nodes_with_fallback_age": 0
+  },
+  "age_source": "SensorBridge.latest_value(node, role) \u2192 _last_raw_ts[sensor_id] (wall clock at ingest); null when the axis has no recorded reading",
+  "determinism": {
+    "seed": 7,
+    "days": 1.0,
+    "rng_pin": 1234,
+    "wall_clock": "ages only; the field and census are seeded"
+  },
+  "read_only_on_rho": true,
+  "builds_on": "proofs/first_sentence.py",
+  "sample_nodes": {
+    "before": [
+      {
+        "id": "grid_agent_near",
+        "label": "grid: agent near",
+        "value": null,
+        "unit": "bloch_z",
+        "state": "dark",
+        "age_s": null,
+        "source": "umwelt nameplate grid.agent_near",
+        "note": "never signalled"
+      },
+      {
+        "id": "cell_0_0_agent_near",
+        "label": "cell 0 0: agent near",
+        "value": null,
+        "unit": "bloch_z",
+        "state": "dark",
+        "age_s": null,
+        "source": "umwelt nameplate cell_0_0.agent_near",
+        "note": "never signalled"
+      }
+    ],
+    "after": [
+      {
+        "id": "grid_agent_near",
+        "label": "grid: agent near",
+        "value": null,
+        "unit": "bloch_z",
+        "state": "dark",
+        "age_s": null,
+        "source": "umwelt nameplate grid.agent_near",
+        "note": "never signalled"
+      },
+      {
+        "id": "cell_0_0_agent_near",
+        "label": "cell 0 0: agent near",
+        "value": -0.8196,
+        "unit": "bloch_z",
+        "state": "current",
+        "age_s": 0,
+        "source": "umwelt nameplate cell_0_0.agent_near",
+        "note": ""
+      }
+    ]
+  }
+}

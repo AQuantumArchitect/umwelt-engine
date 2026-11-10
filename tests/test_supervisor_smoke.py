@@ -1,0 +1,121 @@
+"""Supervisor smoke: create a world over the API, proxy to it, stop/start it."""
+from __future__ import annotations
+
+import json
+import os
+import pickle
+import signal
+import subprocess
+import sys
+import time
+import urllib.request
+from pathlib import Path
+
+import pytest
+
+REPO = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(REPO / "src"))
+sys.path.insert(0, str(REPO))
+
+from umweltd import UmweltClient
+
+
+def _wait_http(url: str, timeout: float = 30.0) -> None:
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            urllib.request.urlopen(url, timeout=2)
+            return
+        except Exception:
+            time.sleep(0.1)
+    raise TimeoutError(url)
+
+
+@pytest.mark.slow
+@pytest.mark.parametrize("shutdown_method", ["http"] + (["sigterm"] if os.name != "nt" else []))
+def test_supervisor_lifecycle(tmp_path, shutdown_method):
+    (tmp_path / "world_spec.py").write_text(
+        "from examples.gridworld.world import gridworld_spec\nSPEC = gridworld_spec()\n")
+    env = os.environ.copy()
+    env["UMWELTD_HOME"] = str(tmp_path / "home")
+    env["UMWELTD_API_KEY"] = "test-key-123"
+    env["PYTHONPATH"] = os.pathsep.join(
+        [str(tmp_path), str(REPO / "src"), str(REPO), env.get("PYTHONPATH", "")])
+    # An ephemeral port, not a fixed one. This used to hardcode 7099, which is
+    # also where yurt's hearth_action_router listens — once that became a
+    # permanent resident (2026-08-04) the test's client reached the ROUTER, got
+    # its `{"ok": true}` back, and failed with KeyError: 'name' from a supervisor
+    # that had started fine. A fixed port makes a test assert things about
+    # whatever happens to own it.
+    import socket
+    with socket.socket() as _s:
+        _s.bind(("127.0.0.1", 0))
+        port = _s.getsockname()[1]
+    sup = subprocess.Popen(
+        [sys.executable, "-m", "umweltd.supervisor", "--port", str(port)], env=env)
+    base = f"http://127.0.0.1:{port}"
+    try:
+        deadline = time.time() + 30                     # wait for 401 (auth is up)
+        while time.time() < deadline:
+            try:
+                urllib.request.urlopen(f"{base}/health", timeout=2)
+                raise AssertionError("keyless request must be rejected")
+            except urllib.error.HTTPError as e:
+                assert e.code == 401
+                break
+            except Exception:
+                time.sleep(0.1)
+        client = UmweltClient(base, world="grid", api_key="test-key-123")
+
+        created = UmweltClient(base, api_key="test-key-123").create_world(
+            "grid", spec="world_spec:SPEC", pin_rngs=True)
+        assert created["name"] == "grid" and created["port"] > 0
+
+        # proxied round trip: health + one ingest through the supervisor
+        assert client.health()["seed_profile"] == "blank"
+        rows = [["2026-01-05T00:00:00+00:00", "sight_cell_0_0", "1.0", None],
+                ["2026-01-05T00:01:00+00:00", "resource_cell_0_0", "5.0", None]]
+        assert client.ingest(rows)["appended"] == 2
+
+        # stop snapshots + start recovers (keyed requests)
+        key_hdr = {"X-API-Key": "test-key-123"}
+        req = urllib.request.Request(f"{base}/worlds/grid/stop", data=b"{}",
+                                     method="POST", headers=key_hdr)
+        stopped = json.loads(urllib.request.urlopen(req).read())
+        assert stopped["running"] is False
+        assert stopped["shutdown"] == "graceful" and stopped["returncode"] == 0
+        world = tmp_path / "home" / "worlds" / "grid"
+        with (world / "snapshot.pkl").open("rb") as saved:
+            assert pickle.load(saved)["_umweltd_cursor"]["rowid"] == 2
+        req = urllib.request.Request(f"{base}/worlds/grid/start", data=b"{}",
+                                     method="POST", headers=key_hdr)
+        started = json.loads(urllib.request.urlopen(req).read())
+        assert started["running"] is True
+        assert client.health()["world"] == "grid"
+        assert client.ingest([["2026-01-05T00:02:00+00:00", "sight_cell_0_0", "0.0", None]])["appended"] == 1
+        # A supervisor exit must not leave this worker serving the temporary
+        # world. An accepted request is not the same as completed shutdown.
+        if shutdown_method == "http":
+            req = urllib.request.Request(f"{base}/shutdown", data=b"{}",
+                                         method="POST", headers=key_hdr)
+            assert urllib.request.urlopen(req, timeout=5).status == 202
+        else:
+            sup.send_signal(signal.SIGTERM)
+        assert sup.wait(timeout=30) == 0
+        with socket.socket() as probe:
+            probe.settimeout(2)
+            assert probe.connect_ex(("127.0.0.1", started["port"])) != 0
+        assert not (world / "worker.port").exists()
+        with (world / "snapshot.pkl").open("rb") as saved:
+            assert pickle.load(saved)["_umweltd_cursor"]["rowid"] == 3
+    finally:
+        # Also clean up a failed assertion on an older server without /shutdown.
+        if sup.poll() is None:
+            try:
+                req = urllib.request.Request(f"{base}/worlds/grid/stop", data=b"{}",
+                    method="POST", headers={"X-API-Key":"test-key-123"})
+                urllib.request.urlopen(req, timeout=5).close()
+            except (OSError, urllib.error.URLError):
+                pass
+            sup.terminate()
+            sup.wait(timeout=30)
