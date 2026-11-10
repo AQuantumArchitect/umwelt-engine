@@ -24,7 +24,7 @@ import importlib
 import warnings
 from typing import TYPE_CHECKING, Any
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"
 
 # public name → defining module. The single source of truth for the facade.
 _EXPORTS: dict[str, str] = {

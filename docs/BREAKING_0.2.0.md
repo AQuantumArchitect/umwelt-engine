@@ -1,12 +1,12 @@
-# Breaking changes in 0.2.0 (for Penduline Keeper)
+# Breaking changes in 0.2.0
 
 Compared with `v0.1.1` (`a047f59`). See [CHANGELOG.md](../CHANGELOG.md) for the full list.
 
 ## Breaking
 
-- **S3 / `umwelt.consumers` is gone.** The S3 application source left this package
-  (layering law); use the private consumer repo. Nothing under `umwelt.consumers`
-  imports any more.
+- **`umwelt.consumers` is gone.** The application source that used to live under
+  `umwelt.consumers` left this package (layering law). Nothing under
+  `umwelt.consumers` imports any more.
 - **The spec gate refuses dangling references.** `validate_spec` now fails unknown
   node/bridge kinds, unknown `reduce`, binding zone/role mismatches, faces/role_modes/
   projection on undeclared roles, `forecast_leaves` at a missing node/role, bad
@@ -56,5 +56,12 @@ imports still work but are internal ([STABILITY.md](STABILITY.md)).
 
 ## Pinning
 
-Stay on `v0.1.1` until you are ready, then pin `v0.2.0` on private `umwelt`. The
-public `umwelt-engine` tag comes later (after #132).
+Stay on `v0.1.1` until you are ready to take these 0.2.0 breaks, then pin a
+public release tag. The current release is `v0.2.1` (license exception and
+documentation fixes; no code changes relative to `v0.2.0`):
+
+```
+umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.2.1
+```
+
+See [CONSUMER_PIN.md](CONSUMER_PIN.md).

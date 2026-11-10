@@ -30,36 +30,36 @@ While 0.x, pin exactly.
 Pin a release tag, or a full 40-character commit SHA. Never a branch or short SHA.
 
 ```bash
-pip install "umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.x.y"
+pip install "umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.2.1"
 ```
 
 `requirements.txt`:
 
 ```
-umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.x.y
+umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.2.1
 ```
 
 `pyproject.toml` of your app:
 
 ```toml
 dependencies = [
-    "umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.x.y",
+    "umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.2.1",
 ]
 # or, an exact commit:
 #   "umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@<full-40-char-sha>"
 ```
 
-Extras work as usual: `umwelt-engine[rollout] @ git+https://…@v0.x.y`.
+Extras work as usual: `umwelt-engine[rollout] @ git+https://…@v0.2.1`.
 No credentials are needed; do not put any in a dependency URL.
 
-Replace `v0.x.y` with a real tag from the repository's tags page.
+The current release is `v0.2.1`. Replace the tag with a later one when you upgrade.
 
 ### Record the pin
 
 A pin without a "verified by" command is a wish. In your repo keep a row such as:
 
 ```
-| umwelt-engine | `v0.x.y` | verified by: python -m pytest -q → <N> passed |
+| umwelt-engine | `v0.2.1` | verified by: python -m pytest -q → <N> passed |
 ```
 
 ### Dev option: editable sibling checkout
@@ -87,15 +87,6 @@ changelog flags as a behaviour change.
 Import from `umwelt` (`from umwelt import DomainSpec, GameHost`), not from deep paths.
 The top-level names are the stable surface ([API.md](API.md)); deep paths are internal
 ([STABILITY.md](STABILITY.md)).
-
-## Migrating from the private `umwelt` repo
-
-Apps pinned to `git+https://github.com/AQuantumArchitect/umwelt@<sha>` (Penduline
-first) keep working: those pins and the private repo's tags are unchanged. When you
-are ready, switch the URL to `umwelt-engine` and the pin to a public tag in one commit,
-then run your gates. The distribution name (`umwelt-engine`) and the import name
-(`umwelt`) do not change, so no code edits are expected. Where CI used a read token to
-check out the private repo, that step can be dropped.
 
 ## Don'ts
 

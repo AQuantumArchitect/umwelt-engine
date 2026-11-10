@@ -6,11 +6,19 @@ if the two ever disagree, CLAIMS.md wins.
 
 ## [Unreleased]
 
+## [0.2.1] - 2026-11-09
+
 ### License
-- Relicensed from Apache-2.0 to AGPL-3.0-or-later (copyright 2026 Luke Spooner): full AGPL-3.0 text in `LICENSE`, copyright in `NOTICE`. v0.2.0 and earlier were Apache-2.0.
-- Docs: the downstream application is referred to generically; the withdrawn real-household figure is no longer listed as owed.
+- Additional permission under GNU AGPL version 3, section 7 for combining Umwelt Engine with games or applications whose source repository is owned by the AQuantumArchitect GitHub account (including VerdanceAshes, SpaceWheat and eukaryotic-eucharist): see [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md). The engine itself remains AGPL-3.0-or-later.
+
+### Docs
+- `docs/BREAKING_0.2.0.md` is now a neutral public note; pinning guidance uses the public `umwelt-engine` tag. Install and pin docs no longer refer to a forthcoming public release.
 
 ## [0.2.0] - 2026-11-09
+
+### License
+- This public 0.2.0 snapshot is AGPL-3.0-or-later (copyright 2026 Luke Spooner): full AGPL-3.0 text in `LICENSE`, copyright in `NOTICE`. Earlier development releases were Apache-2.0.
+- Docs: the downstream application is referred to generically; the withdrawn real-household figure is no longer listed as owed.
 
 ### Supported consumer vocabulary and service surface (#80)
 - Promote `register_role_mode`, `register_observe_role`, `register_role_emoji` and

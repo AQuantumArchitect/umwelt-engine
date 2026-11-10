@@ -155,7 +155,7 @@ the long-term product path.
 
 | Ask | Why | Suggested surface |
 |-----|-----|-------------------|
-| **Stable multi-world catalog + pin** | Consumers need `umwelt @ <commit>` + world name | Already: worlds catalog; publish **install pin guidance** in SERVICE.md |
+| **Stable multi-world catalog + pin** | Consumers need `umwelt-engine @ v0.2.1` (or a later tag) + world name | Already: worlds catalog; publish **install pin guidance** in SERVICE.md |
 | **Cassette / event batch ingest** | Certified segments are batches with residual checks | `POST /events` already batch; add optional `client_request_id` + idempotency notes for harnesses |
 | **Snapshot cursor = consumer checkpoint** | Knot anchors map to daemon snapshots | Document mapping: consumer stamp ↔ `field_canon_hash` + event cursor |
 | **Shadow recommendations over the wire** | Game AI and SI should stay ghost until promote | `/recommendations` exists — call out game SI use |
@@ -378,7 +378,7 @@ and blocked third-party install. Fixed in consumer by sibling editable + docs.
 Document the **supported consumer install** in one place:
 
 ```text
-pip install -e ../umwelt          # or git+https://...@<pinned-sha>
+pip install -e ../umwelt-engine   # or git+https://github.com/AQuantumArchitect/umwelt-engine@v0.2.1
 pip install -e ../septacrypt-core
 ```
 

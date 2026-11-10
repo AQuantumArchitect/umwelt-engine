@@ -104,7 +104,7 @@ dynamics, belief, or path alone.
 |---|---|---|---|---|---|
 | 1 | **Universal Architect** | What can exist or be made consistent? | Recursive composition, resource/affordance closure, abductive support generation | `dudecon/Universal-Architect` | Open — needs instance IDs + multi-target IR (§7) |
 | 2 | **SpaceWheat manifold** | How does it evolve? | Local open-system / manifold dynamics, coupled loops, weighted graph physics | `AQuantumArchitect/SpaceWheat` | Open — consume as dynamics; Nested Reactor may use a thin stand-in first |
-| 3 | **umwelt** | What does this observer believe? | Partial observation, confidence, trust, forecasting, self-action hygiene, private belief fields | `AQuantumArchitect/umwelt` | **FL-core 1–5 shipped** — pin as dependency |
+| 3 | **umwelt** | What does this observer believe? | Partial observation, confidence, trust, forecasting, self-action hygiene, private belief fields | `AQuantumArchitect/umwelt-engine` | **FL-core 1–5 shipped** — pin as dependency |
 | 4 | **Berry Tape** | Where are we in the process? | Kaironic indexing, phase accumulation, return/loop detection, working-memory stamps | umwelt machinery | Machinery exists — attach to ledger stamps in integration |
 | 5 | **Knot Ledger** | What path has been witnessed or proposed? | Durable event provenance, branch DAG, transition certificates, replay, nonlinear insertion | new sibling layer | **Not started** — primary new code |
 | 6 | **Fledgeling** | How does a player perceive and intervene? | SI agency, attention, subroutines, story interaction, rendering and game loop | `dudecon/Fledgeling_HTML` + design site | Partial control-plane demos in umwelt; product host open |
@@ -1481,7 +1481,7 @@ Proceed by proving the Nested Reactor knot, not by expanding the cosmology first
 - Fledgeling overview: https://www.peripheralarbor.com/fledgeling/
 - Fledgeling HTML prototype: https://github.com/dudecon/Fledgeling_HTML
 - Universal Architect: https://github.com/dudecon/Universal-Architect
-- umwelt: https://github.com/AQuantumArchitect/umwelt
+- umwelt: https://github.com/AQuantumArchitect/umwelt-engine
 - umwelt FL-core status: [FLEDGELING_CORE.md](FLEDGELING_CORE.md)
 - SpaceWheat: https://github.com/AQuantumArchitect/SpaceWheat
 - Spirit Cube model: https://sketchfab.com/3d-models/spirit-cube-bdcfaf40b1e447e69b8db95b465ff39c

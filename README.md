@@ -43,12 +43,12 @@ python examples/quickstart.py
 To depend on it from your own app, pin a release tag from git (not `main`):
 
 ```bash
-pip install "umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.x.y"
+pip install "umwelt-engine @ git+https://github.com/AQuantumArchitect/umwelt-engine@v0.2.1"
 ```
 
 The distribution is `umwelt-engine`, but the import name is `umwelt`. The unrelated
 PyPI project `umwelt` also installs an `umwelt` package, so do not install both in one
-environment. Details, upgrade steps and migration: [docs/CONSUMER_PIN.md](docs/CONSUMER_PIN.md).
+environment. Details and upgrade steps: [docs/CONSUMER_PIN.md](docs/CONSUMER_PIN.md).
 
 It runs offline in about a second. You will see (trimmed):
 
@@ -141,7 +141,9 @@ transferable lessons). What was extracted is the method; the data stays where it
 ## License, contributing, and the notebook
 
 Copyright 2026 Luke Spooner. Licensed under AGPL-3.0-or-later ([LICENSE](LICENSE),
-[NOTICE](NOTICE)).
+[NOTICE](NOTICE)). An additional permission under GNU AGPL version 3, section 7
+for games and applications whose source repository is owned by the
+AQuantumArchitect GitHub account is in [LICENSE-EXCEPTION.md](LICENSE-EXCEPTION.md).
 
 Pull requests are welcome. CI runs the gate (`python -m pytest -q`). A new row in
 CLAIMS.md needs a proof or a test behind it, and a number you could not measure goes in
