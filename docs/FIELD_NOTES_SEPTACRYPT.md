@@ -102,7 +102,7 @@ Certificates own durable path identity.
 |-----|-----|--------|
 | **Event taxonomy for field mutations** | Ingest is strong; param/H/coupling/measure record should share a single “cassette” vocabulary for consumers | Align with `umwelt.events` schema; export a stable event kind enum |
 | **Replay residual API** | Consumers reimplemented residual on e1/e2 | Optional: `engine.replay(events) -> residual_report` against a snapshot |
-| **Berry vs ledger boundary** | Already correct in spirit ([FLEDGELING_SEPTACRYPT_PLAN.md](FLEDGELING_SEPTACRYPT_PLAN.md)) | Keep BerryTape as process clock; durable branching stays **out** of umwelt or as an optional sidecar contract |
+| **Berry vs ledger boundary** | Already correct in spirit | Keep BerryTape as process clock; durable branching stays **out** of umwelt or as an optional sidecar contract |
 | **RNG commitment** | Measurement outcomes must be recorded for residual-zero replay | Host measure paths should record `record_z` (or equivalent) in the event log |
 
 **Ask:** treat the Knot Ledger as an **optional durable coordination layer** (see §K),
@@ -433,7 +433,6 @@ Do not “rationalize away” the adapter vocabulary.
 | Consumer repo | https://github.com/AQuantumArchitect/septacrypt-core |
 | Hardening commit | `81b2e53` — fail-closed composite ledger |
 | Handoff surface | consumer `GAME_BUILDER.md` |
-| Prior plan in this monorepo | [FLEDGELING_SEPTACRYPT_PLAN.md](FLEDGELING_SEPTACRYPT_PLAN.md) |
 | FL-core status | [FLEDGELING_CORE.md](FLEDGELING_CORE.md) |
 | Service shape | [SERVICE.md](SERVICE.md) |
 | Honest claims ledger | [CLAIMS.md](../CLAIMS.md) |
